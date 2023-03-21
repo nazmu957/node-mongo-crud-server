@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// user: dbUser2
+
 // pass: vv2fcT1cv7Q7HsAr
 
 
