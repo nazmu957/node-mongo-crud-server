@@ -21,6 +21,7 @@ async function run(){
         
         const productCollection = client.db('gadgetDevice').collection('products');
         
+        //products server get method
         app.get('/products', async(req, res) =>{
             const query ={};
             const cursor = productCollection.find(query);
@@ -40,6 +41,23 @@ async function run(){
             const result = await productCollection.insertOne(product);
             res.send(result);
         });
+
+        app.put('/products/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: new ObjectId(id) };
+            const product = req.body;
+            const option = {upsert: true};
+            const updatedProduct = {
+                $set: {
+                    productName: product.productName,
+                    productPrice: product.productPrice,
+                    imageLink: product.imageLink
+                }
+            }
+            console.log(updatedProduct);
+            const result = await productCollection.updateOne(filter, updatedProduct, option);
+            res.send(result);
+        } )
 
         app.delete('/products/:id', async(req, res) =>{
             const id = req.params.id;
