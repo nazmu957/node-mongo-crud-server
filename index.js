@@ -28,6 +28,8 @@ async function run(){
             const products = await cursor.toArray();
             res.send(products); 
         });
+
+        //specific product get method
         app.get('/products/:id', async(req, res) =>{
             const id = req.params.id;
             const query= { _id: new ObjectId(id) };
