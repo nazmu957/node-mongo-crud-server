@@ -28,13 +28,19 @@ async function run(){
             const products = await cursor.toArray();
             res.send(products); 
         });
-         //sorting data 
+         //sorting data from low price
          app.get('/products/sort', async(req, res) =>{
-            
             const cursor = productCollection.find({}).sort({productPrice: 1})
             const sort = await cursor.toArray();
             res.send(sort);
-            console.log(sort);
+            // console.log(sort);
+         })
+         //sorting data from high price
+         app.get('/products/dsort', async(req, res) =>{
+            const cursor = productCollection.find({}).sort({productPrice: -1})
+            const dsort = await cursor.toArray();
+            res.send(dsort);
+            // console.log(dsort);
          })
         //specific product get method
         app.get('/products/:id', async(req, res) =>{
