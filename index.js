@@ -28,7 +28,14 @@ async function run(){
             const products = await cursor.toArray();
             res.send(products); 
         });
-
+         //sorting data 
+         app.get('/products/sort', async(req, res) =>{
+            
+            const cursor = productCollection.find({}).sort({productPrice: 1})
+            const sort = await cursor.toArray();
+            res.send(sort);
+            console.log(sort);
+         })
         //specific product get method
         app.get('/products/:id', async(req, res) =>{
             const id = req.params.id;
