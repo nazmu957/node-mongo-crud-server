@@ -60,7 +60,7 @@ async function run(){
             const result = await productCollection.updateOne(filter, updatedProduct, option);
             res.send(result);
         } )
-
+       //delete code updated
         app.delete('/products/:id', async(req, res) =>{
             const id = req.params.id;
             
