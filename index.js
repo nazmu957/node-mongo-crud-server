@@ -50,7 +50,7 @@ async function run(){
             res.send(product);
         })
 
-        //post method
+        //post method added
         app.post('/products', async(req, res) =>{
             const product = req.body;
             console.log(product);
