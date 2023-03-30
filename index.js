@@ -57,7 +57,7 @@ async function run(){
             const result = await productCollection.insertOne(product);
             res.send(result);
         });
-
+        //product identify server
         app.put('/products/:id', async (req, res) => {
             const id = req.params.id;
             const filter = { _id: new ObjectId(id) };
