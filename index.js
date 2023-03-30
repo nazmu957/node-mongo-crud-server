@@ -98,24 +98,7 @@ app.get('/', (req, res) =>{
     res.send('hello from node mongo crud server');
 
 })
-//extra code for check
-app.get('/mobiles', async(req, res) => {
-    try {
-            const mobiles = await mobiles.find();
-            if(mobiles){
-                res.status(200).send(mobiles);
-            }
-            else {
-                res.status(404).send({
-                    message:"product not found",
-                })
-    } 
-    }
-    catch (error) {
-        res.status(500).send({ message: error.message});
-    }
-})
-//end check
+
 app.listen(port, () =>{
     console.log(`Listen to port ${port}`);
 })
