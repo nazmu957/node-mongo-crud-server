@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 
-
+//mongo server integrated
 
 const uri = "mongodb+srv://dbUser2:vv2fcT1cv7Q7HsAr@cluster0.rpi3hpm.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
